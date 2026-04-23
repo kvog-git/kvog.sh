@@ -1,6 +1,7 @@
 +++
 title = 'Reverse Engineering _Neon Genesis Evangelion: Girlfriend of Steel_'
 date = 2026-04-22T20:30:53-05:00
+draft = true
 +++
 
 Last year, I started reverse enginering _Neon Genesis Evangelion: Girlfriend of Steel_ with the intention of writing a replacement engine that runs on modern computers.
