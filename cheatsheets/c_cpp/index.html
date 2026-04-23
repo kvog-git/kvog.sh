@@ -1,46 +1,46 @@
 <!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>C/C++ | kvog.sh</title><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css></head><body><nav><a href=/>Home</a>
-<a href=/about/>About</a><ul class=menu></ul></nav><div class=article-meta><h2 style=border-bottom:none><span class=title>C/C++</span></h2></div><main class=main><ul><li><a href=#preprocessor-definitions>Preprocessor Definitions</a><ul><li><a href=#platform-detection>Platform detection</a></li><li><a href=#compiler-detection>Compiler detection</a></li><li><a href=#architecture-detection>Architecture detection</a></li><li><a href=#gcc-pragmas>GCC pragmas</a></li><li><a href=#msvc-pragmas>MSVC pragmas</a></li></ul></li><li><a href=#standard-headers>Standard Headers</a></li></ul><h2 id=preprocessor-definitions>Preprocessor Definitions</h2><ul><li><a href=https://github.com/cpredef/predef>predef wiki</a></li></ul><h3 id=platform-detection>Platform detection</h3><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#57606a>#ifdef _WIN32
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>  <span style=color:#57606a>// Windows
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#endif
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>
+<a href=/about/>About</a><ul class=menu></ul></nav><div class=article-meta><h2 style=border-bottom:none><span class=title>C/C++</span></h2></div><main class=main><ul><li><a href=#preprocessor-definitions>Preprocessor Definitions</a><ul><li><a href=#platform-detection>Platform detection</a></li><li><a href=#compiler-detection>Compiler detection</a></li><li><a href=#architecture-detection>Architecture detection</a></li><li><a href=#gcc-pragmas>GCC pragmas</a></li><li><a href=#msvc-pragmas>MSVC pragmas</a></li></ul></li><li><a href=#standard-headers>Standard Headers</a></li></ul><h2 id=preprocessor-definitions>Preprocessor Definitions</h2><ul><li><a href=https://github.com/cpredef/predef>predef wiki</a></li></ul><h3 id=platform-detection>Platform detection</h3><div class=highlight><pre tabindex=0 style=background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#57606a>#ifdef _WIN32
+</span></span></span><span style=display:flex><span>  <span style=color:#57606a>// Windows
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#endif
+</span></span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#57606a>#ifdef __APPLE__
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>  <span style=color:#57606a>// Apple - flags for specific devices defined in &lt;TargetConditionals.h&gt;
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#endif
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>
+</span></span></span><span style=display:flex><span>  <span style=color:#57606a>// Apple - flags for specific devices defined in &lt;TargetConditionals.h&gt;
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#endif
+</span></span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#57606a>#ifdef __linux__
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>  <span style=color:#57606a>// Linux
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#endif
-</span></span></span></code></pre></div><h3 id=compiler-detection>Compiler detection</h3><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#57606a>#ifdef __GNUC__
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>  <span style=color:#57606a>// GCC
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#endif
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>
+</span></span></span><span style=display:flex><span>  <span style=color:#57606a>// Linux
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#endif
+</span></span></span></code></pre></div><h3 id=compiler-detection>Compiler detection</h3><div class=highlight><pre tabindex=0 style=background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#57606a>#ifdef __GNUC__
+</span></span></span><span style=display:flex><span>  <span style=color:#57606a>// GCC
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#endif
+</span></span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#57606a>#ifdef __clang__
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>  <span style=color:#57606a>// clang
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#endif
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>
+</span></span></span><span style=display:flex><span>  <span style=color:#57606a>// clang
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#endif
+</span></span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#57606a>#ifdef _MSC_VER
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>  <span style=color:#57606a>// Visual C
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#endif
-</span></span></span></code></pre></div><h3 id=architecture-detection>Architecture detection</h3><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#57606a>#if (defined(_MSC_VER) &amp;&amp; _M_X64) || (defined(__GNUC__) &amp;&amp; __amd64__)
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>  <span style=color:#57606a>// x86-64
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#endif
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>
+</span></span></span><span style=display:flex><span>  <span style=color:#57606a>// Visual C
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#endif
+</span></span></span></code></pre></div><h3 id=architecture-detection>Architecture detection</h3><div class=highlight><pre tabindex=0 style=background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#57606a>#if (defined(_MSC_VER) &amp;&amp; _M_X64) || (defined(__GNUC__) &amp;&amp; __amd64__)
+</span></span></span><span style=display:flex><span>  <span style=color:#57606a>// x86-64
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#endif
+</span></span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#57606a>#if (defined(_MSC_VER) &amp;&amp; _M_ARM64) || (defined(__GNUC__) &amp;&amp; __aarch64__)
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>  <span style=color:#57606a>// arm64
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#endif
-</span></span></span></code></pre></div><h3 id=gcc-pragmas>GCC pragmas</h3><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#57606a>// Push/pop warning state
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#pragma GCC diagnostic push
+</span></span></span><span style=display:flex><span>  <span style=color:#57606a>// arm64
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#endif
+</span></span></span></code></pre></div><h3 id=gcc-pragmas>GCC pragmas</h3><div class=highlight><pre tabindex=0 style=background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#57606a>// Push/pop warning state
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#pragma GCC diagnostic push
 </span></span></span><span style=display:flex><span><span style=color:#57606a>#pragma GCC diagnostic pop
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>
+</span></span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#57606a>// Disable a warning
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#pragma GCC diagnostic ignored &#34;-Wunused-variable&#34;
-</span></span></span></code></pre></div><h3 id=msvc-pragmas>MSVC pragmas</h3><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#57606a>// Link against abc.lib
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#pragma comment(lib, &#34;abc.lib&#34;)
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#pragma GCC diagnostic ignored &#34;-Wunused-variable&#34;
+</span></span></span></code></pre></div><h3 id=msvc-pragmas>MSVC pragmas</h3><div class=highlight><pre tabindex=0 style=background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#57606a>// Link against abc.lib
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#pragma comment(lib, &#34;abc.lib&#34;)
+</span></span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#57606a>// Push/pop warning state
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#pragma warning(push)
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#pragma warning(push)
 </span></span></span><span style=display:flex><span><span style=color:#57606a>#pragma warning(pop)
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span>
+</span></span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#57606a>// Disable a warning
-</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#57606a>#pragma warning(disable: 4996)
+</span></span></span><span style=display:flex><span><span style=color:#57606a>#pragma warning(disable: 4996)
 </span></span></span></code></pre></div><h2 id=standard-headers>Standard Headers</h2><ul><li><a href=https://en.cppreference.com/w/c/header.html>C standard headers</a></li><li><a href=https://en.cppreference.com/w/cpp/header.html>C++ standard headers</a></li></ul></main><footer></footer></body></html>
