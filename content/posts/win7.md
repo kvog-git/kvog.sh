@@ -3,6 +3,8 @@ title = 'Updating a fresh Windows 7+SP1 install'
 date = 2024-02-05T02:30:19-06:00
 +++
 
+**2026 UPDATE**: Use Atak\_Snajpera's [Windows 7 Image Updater](https://forum.videohelp.com/threads/384921-Windows-7-Image-Updater-SkyLake-KabyLake-CoffeLake-Ryzen-Threadripper)
+
 ## How to update a fresh Windows 7+SP1 install in 2024
 
 *Mostly taken from http://www.freenode-windows.org/resources/vista-7/windows-update ([archived](https://web.archive.org/web/20220925214048/http://www.freenode-windows.org/resources/vista-7/windows-update))*
