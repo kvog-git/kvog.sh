@@ -3,6 +3,9 @@ languageCode = 'en-us'
 title = 'kvog.sh'
 theme = 'hugo-xmin'
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [markup.highlight]
   style = "github"
   noClasses = false
