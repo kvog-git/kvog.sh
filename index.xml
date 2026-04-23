@@ -27,7 +27,8 @@
 &lt;script&gt;
  let address = atob('aHVudGVyQGt2b2cuc2g=');
  document.getElementById('my-email').innerHTML = `&lt;a href="mailto:${address}"&gt;${address}&lt;/a&gt;`
-&lt;/script&gt;</description></item><item><title>C/C++</title><link>https://kvog.sh/cheatsheets/c_cpp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kvog.sh/cheatsheets/c_cpp/</guid><description>&lt;ul&gt;
+&lt;/script&gt;
+&lt;p&gt;This website&amp;rsquo;s source code can be downloaded here: &lt;a href="https://github.com/kvog-git/kvog.sh/archive/refs/heads/master.tar.gz"&gt;master.tar.gz&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>C/C++</title><link>https://kvog.sh/cheatsheets/c_cpp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kvog.sh/cheatsheets/c_cpp/</guid><description>&lt;ul&gt;
 &lt;li&gt;&lt;a href="#preprocessor-definitions"&gt;Preprocessor Definitions&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="#platform-detection"&gt;Platform detection&lt;/a&gt;&lt;/li&gt;
