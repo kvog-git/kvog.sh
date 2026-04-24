@@ -34,9 +34,19 @@ Luckily, someone in 2020 found a copy and had the foresight to rip the disc and 
 
 MD5: `536adbefc80a84378b65224fddf122e7` SHA-1: `77a03fb1823cb96189ac50b9afece8930e709c93`
 
-## Defeating the DRM
+## Getting around DRM
 
-TODO remember how I did this, then write about it
+Special edition is secured with SecuROM. It's completely busted, so you'll need to run the game in a Windows XP VM with 3D accleration. I used VMWare.
+
+Once the game is running in the VM (lots of fiddling, unfortunately) the executable can be dumped with Scylla x86.
+To save you the headache, here's the dump: [mana01_dump.tar.gz](/files/girlfriend-of-steel-re/mana01_dump.tar.gz)
+
+![001-scylla.png](/files/girlfriend-of-steel-re/001-scylla.png)
+
+Once dumped, throw it in your favorite reverse engineering tool. Here's a function that does something with script parsing:
+
+![002-ghidra.png](/files/girlfriend-of-steel-re/002-ghidra.png)
+
 
 ## Custom file types (1997)
 
