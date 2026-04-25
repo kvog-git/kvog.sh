@@ -12,10 +12,10 @@
   {{ end }}
 </ul>
 
-<h2>Posts:</h2>
+<h2>Articles:</h2>
 <ul>
   {{ $pages := .Site.RegularPages }}
-  {{ range (where $pages "Section" "posts") }}
+  {{ range (where $pages "Section" "articles") }}
   <li>
     <span class="date">{{ .Date.Format "01/02/2006" }}</span>
     <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
