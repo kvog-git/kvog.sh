@@ -9,3 +9,4 @@ theme = 'hugo-xmin'
 [markup.highlight]
   style = "github"
   noClasses = false
+  codeFences = true

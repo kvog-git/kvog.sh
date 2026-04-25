@@ -4,6 +4,8 @@ date = 2026-04-22T20:30:53-05:00
 draft = true
 +++
 
+![weeb-header](/files/girlfriend-of-steel-re/000-weeb-header.jpg)
+
 Last year, I started reverse enginering _Neon Genesis Evangelion: Girlfriend of Steel_ with the intention of writing a replacement engine that runs on modern computers.
 I ended up losing interest, but not before cracking a few of the game data formats. I'm going to document them here, that way anyone who takes a similar
 interest in restoration or modding can have a head start.
@@ -36,14 +38,16 @@ MD5: `536adbefc80a84378b65224fddf122e7` SHA-1: `77a03fb1823cb96189ac50b9afece893
 
 ## Getting around DRM
 
-Special edition is secured with SecuROM. It's completely busted, so you'll need to run the game in a Windows XP VM with 3D accleration. I used VMWare.
+Special edition is secured with [SafeDisc](https://en.wikipedia.org/wiki/SafeDisc). It's completely broken on modern Windows, so you'll need to use a virtual machine to run the game.
+I had good success with Windows XP in VMWare with 3D acceleration enabled.
 
-Once the game is running in the VM (lots of fiddling, unfortunately) the executable can be dumped with Scylla x86.
+Once the game is running in the VM (lots of fiddling, unfortunately) the executable can be dumped with [Scylla x86](https://x64dbg.com/).
 To save you the headache, here's the dump: [mana01_dump.tar.gz](/files/girlfriend-of-steel-re/mana01_dump.tar.gz)
 
 ![001-scylla.png](/files/girlfriend-of-steel-re/001-scylla.png)
 
-Once dumped, throw it in your favorite reverse engineering tool. Here's a function that does something with script parsing:
+Although it doesn't run, the dump is a correct PE file.
+Ghidra is able to create proper data and code cross-references. Here's a function that parses script keywords:
 
 ![002-ghidra.png](/files/girlfriend-of-steel-re/002-ghidra.png)
 
