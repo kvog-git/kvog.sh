@@ -51,12 +51,11 @@ Ghidra is able to create proper data and code cross-references. Here's a functio
 
 ![002-ghidra.png](/files/girlfriend-of-steel-re/002-ghidra.png)
 
-
 ## Custom file types (1997)
 
+* **LB5**: Lump file
 * **BP2**: Image (1997)
 * **BP3**: Image (2006)
-* **LB5**: Lump file
 * **TXT**: Game script
 * **ZDF**: Animation data
 
@@ -73,3 +72,78 @@ Aside from that, here are the existing tools I looked at:
 * [mdukat/EvaGOS\_engine](https://github.com/mdukat/EvaGOS_engine): Includes partial documentation of the game scripting language from the 1997 game.
 * [lb5\_decode.c](https://d3suu.neocities.org/EvaGOS_engine/lb5_decode.txt): LB5 unpacker, written by either mdukat or roxfan.
 * [Durik256/GOS2-Tools](https://github.com/Durik256/GOS2-Tools): Tools for dealing with files found in Girlfriend of Steel 2. Some overlap.
+
+## LB5
+
+These are very basic file archives. It's an `.IDX` file paired with either a `.BIN` or `.LB5`.
+
+There's no encryption, the idx file just stores the index into the bin/lb5. See ImHex patterns.
+
+## BP2 image format (1997)
+
+BP2 image format start with a custom header, followed by the standard bitmap file headers (`BITMAPFILEHEADER`, then `BITMAPINFOHEADER`).
+The custom header starts with a 32-bit uint32_t with value `999`. Search for that literal in the decompiler output to find the parser function.
+
+The 2nd field in the custom header defines the pixel format.
+| Value | Format                                   |
+| ----- | ---------------------------------------- |
+| `1`   | `INDEX8` - 8-bit index into palette data |
+| `2`   | `RGB24`                                  |
+| `3`   | `GRAY8`                                  |
+
+If the format is `INDEX8`, then the palette data is next.
+The length of the buffer is defined in the custom header.
+
+The rest of the file is image data encoded into chunks:
+```c
+struct BP2_Chunk
+{
+    u32 len;
+    u8  buf[len];
+};
+```
+
+Each chunk is a run-length encoded column of 8 pixels.
+To understand the specifics, it's easier to just look at the decompiler output or `ftformat.cc` in the source code linked above.
+
+## BP3 image format (Special Editioin)
+
+BP3 is similar. It supports more pixel formats and the image data is compressed into 8x8 blocks instead of 8-tall columns.
+
+| Value | Format              |
+| ----- | ------------------- |
+| `0`   | `SOLID` - One color |
+| `2`   | `BGR332`            |
+| `3`   | `BGR233`            |
+| `4`   | `GRAY4`             |
+| `5`   | `GRAY8`             |
+| `6`   | `BGR555`            |
+| `7`   | `BGR888`            |
+
+The decoder for BP3 is also in `ftformat.cc`.
+
+## TXT (1997)
+
+This is XOR-encrypted Shift_JIS text:
+
+```c
+for (u32 i = 0; i < txt_len; ++i) {
+    data[i] ^= 0xFF;
+}
+```
+
+## TXT (Special Edition)
+
+Same thing, but slightly different:
+
+```c
+for (u32 i = 0; i < len; ++i) {
+    if (data[i] > 0xF) {
+        data[i] = 0xE - data[i];
+    }
+}
+```
+
+## ZDF
+
+This file starts with a fourcc of `DFS0`.
